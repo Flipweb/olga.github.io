@@ -1,0 +1,1013 @@
+<html lang="ru"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMM Отчёт | Октябрь-Ноябрь 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e2e8f0;
+            z-index: 1000;
+            padding: 0 20px;
+        }
+        
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+        
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1e40af;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .nav-link {
+            font-size: 0.85rem;
+            color: #64748b;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            background: #f1f5f9;
+            color: #1e40af;
+        }
+        
+        .nav-link.active {
+            background: #1e40af;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .nav-mobile {
+                display: block;
+            }
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 100px 20px 40px;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+        
+        .header .period {
+            font-size: 1.1rem;
+            color: #64748b;
+        }
+        
+        /* Executive Summary */
+        .executive-summary {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .executive-summary h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .executive-summary p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 25px;
+        }
+        
+        .key-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .key-metric {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .key-metric .number {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .key-metric .label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        /* Brand Section */
+        .brand-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .brand-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+        
+        .brand-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        
+        .brand-tag {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .brand-tag.new {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        /* Subsection */
+        .subsection {
+            margin-bottom: 35px;
+        }
+        
+        .subsection:last-child {
+            margin-bottom: 0;
+        }
+        
+        .subsection-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .subsection-title::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: #3b82f6;
+            border-radius: 2px;
+        }
+        
+        /* Infrastructure List */
+        .infra-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .infra-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 12px 16px;
+            background: #f8fafc;
+            border-radius: 10px;
+        }
+        
+        .infra-item .check {
+            color: #22c55e;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .infra-item .text {
+            font-size: 0.95rem;
+        }
+        
+        /* Metrics Comparison */
+        .metrics-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .metrics-table th {
+            text-align: left;
+            padding: 12px 16px;
+            background: #f8fafc;
+            font-weight: 600;
+            color: #64748b;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .metrics-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .metrics-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .metrics-table .metric-name {
+            font-weight: 500;
+        }
+        
+        .metrics-table .old-value {
+            color: #94a3b8;
+        }
+        
+        .metrics-table .new-value {
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .metrics-table .growth {
+            font-weight: 600;
+        }
+        
+        .metrics-table .growth.positive {
+            color: #22c55e;
+        }
+        
+        .metrics-table .growth.negative {
+            color: #ef4444;
+        }
+        
+        /* Platform Cards */
+        .platform-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .platform-card {
+            background: #f8fafc;
+            padding: 24px;
+            border-radius: 16px;
+            text-align: center;
+        }
+        
+        .platform-card .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .platform-card .name {
+            font-weight: 600;
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        
+        .platform-card .stat {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        
+        .platform-card .change {
+            font-size: 0.9rem;
+            color: #22c55e;
+            font-weight: 600;
+        }
+        
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 20px 24px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        
+        .highlight-box .title {
+            font-weight: 600;
+            color: #92400e;
+            margin-bottom: 6px;
+        }
+        
+        .highlight-box .content {
+            color: #78350f;
+        }
+        
+        /* Budget Section */
+        .budget-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .budget-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        .budget-table th {
+            text-align: left;
+            padding: 14px 16px;
+            background: #f8fafc;
+            font-weight: 600;
+            color: #64748b;
+        }
+        
+        .budget-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .budget-table .amount {
+            text-align: right;
+            font-weight: 600;
+            font-family: 'SF Mono', Monaco, monospace;
+        }
+        
+        .budget-table .category {
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+        
+        .budget-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            background: #1e40af;
+            color: white;
+            border-radius: 12px;
+        }
+        
+        .budget-total .label {
+            font-weight: 600;
+        }
+        
+        .budget-total .amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        /* Next Steps */
+        .next-steps {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .next-steps h2 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: #1e293b;
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .step-item .number {
+            background: #3b82f6;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        
+        .step-item .text {
+            font-size: 0.95rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .key-metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .infra-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .platform-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .container {
+                max-width: 100%;
+                padding: 20px;
+            }
+            
+            .brand-section,
+            .budget-section,
+            .next-steps {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #e2e8f0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">SMM Отчёт</div>
+            <div class="nav-links">
+                <a href="#summary" class="nav-link">Итоги</a>
+                <a href="#katz" class="nav-link">KATZ Interiors</a>
+                <a href="#wilfort-aero" class="nav-link">Wilfort Aero</a>
+                <a href="#wilfort-capital" class="nav-link">Wilfort Capital</a>
+                <a href="#budget" class="nav-link">Расходы</a>
+                <a href="#challenges" class="nav-link">Ограничения</a>
+                <a href="#plan" class="nav-link">План</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Отчёт по SMM</h1>
+            <div class="period">1 октября — 30 ноября 2025 (2 месяца)</div>
+        </div>
+        
+        <!-- Executive Summary -->
+        <div class="executive-summary" id="summary">
+            <h2>📊 Ключевые итоги</h2>
+            <p>За 2 месяца запущено SMM-продвижение для 3 брендов. Создана инфраструктура: CRM-система, рубрикаторы контента, визуальные концепции. Запущена и оптимизирована таргетированная реклама META для KATZ Interiors — получено 42 лида, просмотры выросли в 4.7 раза.</p>
+            
+            <div class="key-metrics">
+                <div class="key-metric">
+                    <div class="number">42</div>
+                    <div class="label">лида с рекламы</div>
+                </div>
+                <div class="key-metric">
+                    <div class="number">×4.7</div>
+                    <div class="label">рост просмотров</div>
+                </div>
+                <div class="key-metric">
+                    <div class="number">+760</div>
+                    <div class="label">подписчиков KATZ</div>
+                </div>
+                <div class="key-metric">
+                    <div class="number">362K</div>
+                    <div class="label">просмотров в ноябре</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- KATZ Interiors -->
+        <div class="brand-section" id="katz">
+            <div class="brand-header">
+                <div class="brand-name">KATZ Interiors</div>
+                <div class="brand-tag">Основной фокус</div>
+            </div>
+            
+            <div class="subsection">
+                <div class="subsection-title">Инфраструктура (разовые работы)</div>
+                <div class="infra-grid">
+                    <div class="infra-item">
+                        <span class="check">✓</span>
+                        <span class="text"><strong>CRM Kommo</strong> — подписка на 6 мес., 2 аккаунта, корп. WhatsApp</span>
+                    </div>
+                    <div class="infra-item">
+                        <span class="check">✓</span>
+                        <span class="text"><strong>Контент-стратегия</strong> — видение соцсетей, рубрикатор из 8 категорий</span>
+                    </div>
+                    <div class="infra-item">
+                        <span class="check">✓</span>
+                        <span class="text"><strong>Съёмка Atlantis</strong> — профессиональные фото/видео проекта</span>
+                    </div>
+                    <div class="infra-item">
+                        <span class="check">✓</span>
+                        <span class="text"><strong>Анализ конкурентов</strong> — разбор рекламных стратегий</span>
+                    </div>
+                    <div class="infra-item">
+                        <span class="check">✓</span>
+                        <span class="text"><strong>9 брендированных футболок</strong> — для съёмочной команды</span>
+                    </div>
+                    <div class="infra-item">
+                        <span class="check">✓</span>
+                        <span class="text"><strong>AI-специалист</strong> — найден и подключён к проекту</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="subsection">
+                <div class="subsection-title">Результаты Instagram</div>
+                <table class="metrics-table">
+                    <thead>
+                        <tr>
+                            <th>Метрика</th>
+                            <th>Октябрь</th>
+                            <th>Ноябрь</th>
+                            <th>Изменение</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="metric-name">Подписчики</td>
+                            <td class="old-value">19,911</td>
+                            <td class="new-value">20,671</td>
+                            <td class="growth positive">+760 (+3.8%)</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Новых подписчиков</td>
+                            <td class="old-value">426</td>
+                            <td class="new-value">856</td>
+                            <td class="growth positive">×2</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Просмотры</td>
+                            <td class="old-value">76,355</td>
+                            <td class="new-value">362,427</td>
+                            <td class="growth positive">×4.7</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Охват аккаунтов</td>
+                            <td class="old-value">15,702</td>
+                            <td class="new-value">87,361</td>
+                            <td class="growth positive">×5.6</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Посещения профиля</td>
+                            <td class="old-value">1,283</td>
+                            <td class="new-value">5,011</td>
+                            <td class="growth positive">×3.9</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Действия в профиле</td>
+                            <td class="old-value">1,317</td>
+                            <td class="new-value">5,132</td>
+                            <td class="growth positive">×3.9</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Публикации</td>
+                            <td class="old-value">6 (4 Reels, 2 карусели)</td>
+                            <td class="new-value">13 (10 Reels, 3 карусели)</td>
+                            <td class="growth positive">×2.2</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 12px; font-size: 0.9rem; color: #64748b;">* 58.7% просмотров в ноябре пришло от рекламы</p>
+            </div>
+            
+            <div class="subsection">
+                <div class="subsection-title">Результаты LinkedIn</div>
+                <div class="platform-cards">
+                    <div class="platform-card">
+                        <div class="name">Подписчики</div>
+                        <div class="stat">978</div>
+                        <div class="change">+130 за ноябрь</div>
+                    </div>
+                    <div class="platform-card">
+                        <div class="name">Показы</div>
+                        <div class="stat">2 470</div>
+                        <div class="change">×2.7 к октябрю</div>
+                    </div>
+                    <div class="platform-card">
+                        <div class="name">Реакции</div>
+                        <div class="stat">65</div>
+                        <div class="change">×3 к октябрю</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="subsection">
+                <div class="subsection-title">Результаты Facebook</div>
+                <table class="metrics-table">
+                    <thead>
+                        <tr>
+                            <th>Метрика</th>
+                            <th>Октябрь</th>
+                            <th>Ноябрь</th>
+                            <th>Изменение</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="metric-name">Просмотры</td>
+                            <td class="old-value">38 782</td>
+                            <td class="new-value">204 405</td>
+                            <td class="growth positive">×5.3</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Взаимодействия</td>
+                            <td class="old-value">43</td>
+                            <td class="new-value">149</td>
+                            <td class="growth positive">×3.5</td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">Новые подписчики</td>
+                            <td class="old-value">2</td>
+                            <td class="new-value">27</td>
+                            <td class="growth positive">×13.5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="subsection">
+                <div class="subsection-title">Таргетированная реклама META (10-30 ноября)</div>
+                
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 25px;">
+                    <div style="background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); padding: 24px; border-radius: 16px; color: white;">
+                        <div style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 8px;">Лид-формы (сбор контактов)</div>
+                        <div style="font-size: 2rem; font-weight: 700;">42 лида</div>
+                        <div style="font-size: 0.9rem; margin-top: 8px;">Потрачено: €1,901 · CPL: €45.28</div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #059669 0%, #10b981 100%); padding: 24px; border-radius: 16px; color: white;">
+                        <div style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 8px;">Квалифицированные лиды</div>
+                        <div style="font-size: 2rem; font-weight: 700;">≥6 лидов</div>
+                        <div style="font-size: 0.9rem; margin-top: 8px;">Подтверждённый интерес к услугам</div>
+                    </div>
+                </div>
+                
+                <div style="background: #f8fafc; padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+                    <div style="font-weight: 600; margin-bottom: 12px;">Общие результаты кампании</div>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; text-align: center;">
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: #1e40af;">€2,378</div>
+                            <div style="font-size: 0.85rem; color: #64748b;">Всего потрачено</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: #1e40af;">3,219</div>
+                            <div style="font-size: 0.85rem; color: #64748b;">Посещений профиля</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: #1e40af;">114K</div>
+                            <div style="font-size: 0.85rem; color: #64748b;">Показов рекламы</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: #1e40af;">76K</div>
+                            <div style="font-size: 0.85rem; color: #64748b;">Охват аудитории</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <table class="metrics-table">
+                    <thead>
+                        <tr>
+                            <th>Страна</th>
+                            <th>Бюджет</th>
+                            <th>Лидов</th>
+                            <th>Цена лида</th>
+                            <th>Оценка</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="metric-name">🇦🇪 ОАЭ</td>
+                            <td>€74</td>
+                            <td class="new-value">6</td>
+                            <td class="growth positive">€12.38</td>
+                            <td><span style="background: #dcfce7; color: #166534; padding: 4px 10px; border-radius: 12px; font-size: 0.8rem;">Лучший CPL</span></td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">🇬🇧 Великобритания</td>
+                            <td>€140</td>
+                            <td class="new-value">8</td>
+                            <td class="growth positive">€17.45</td>
+                            <td><span style="background: #dcfce7; color: #166534; padding: 4px 10px; border-radius: 12px; font-size: 0.8rem;">Хорошо</span></td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">🇹🇷 Турция</td>
+                            <td>€274</td>
+                            <td>6</td>
+                            <td class="growth negative">€45.71</td>
+                            <td><span style="background: #fef3c7; color: #92400e; padding: 4px 10px; border-radius: 12px; font-size: 0.8rem;">Дорого</span></td>
+                        </tr>
+                        <tr>
+                            <td class="metric-name">🇨🇾 Кипр</td>
+                            <td>€110</td>
+                            <td>2</td>
+                            <td class="growth negative">€55.00</td>
+                            <td><span style="background: #fee2e2; color: #991b1b; padding: 4px 10px; border-radius: 12px; font-size: 0.8rem;">Неэффективно</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="highlight-box">
+                <div class="title">💡 Ключевой вывод по рекламе</div>
+                <div class="content">Из 42 лидов минимум 6 квалифицированных (по остальным данные в CRM неполные). ОАЭ дают самые дешёвые лиды (€12.38), но система распределила туда только 12% бюджета. Рекомендация: перенаправить 80% бюджета на Дубай, остановить Турцию и Кипр.</div>
+            </div>
+        </div>
+        
+        <!-- Wilfort Aero -->
+        <div class="brand-section" id="wilfort-aero">
+            <div class="brand-header">
+                <div class="brand-name">Wilfort Aero</div>
+                <div class="brand-tag new">Запуск с нуля</div>
+            </div>
+            
+            <div class="subsection">
+                <div class="subsection-title">Выполненные работы</div>
+                <div class="infra-grid">
+                    <div class="infra-item">
+                        <span class="check">✓</span>
+                        <span class="text"><strong>Визуальная концепция</strong> — гайд для соцсетей</span>
+                    </div>
+                    <div class="infra-item">
+                        <span class="check">✓</span>
+                        <span class="text"><strong>Оформление профилей</strong> — Instagram, Facebook, LinkedIn</span>
+                    </div>
+                    <div class="infra-item">
+                        <span class="check">✓</span>
+                        <span class="text"><strong>12 публикаций</strong> — запуск контент-плана</span>
+                    </div>
+                    <div class="infra-item">
+                        <span class="check">✓</span>
+                        <span class="text"><strong>Тестовое AI-видео</strong> — первый ролик опубликован</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="subsection">
+                <div class="subsection-title">Первые результаты LinkedIn</div>
+                <div class="platform-cards">
+                    <div class="platform-card">
+                        <div class="name">Всего подписчиков</div>
+                        <div class="stat">52</div>
+                        <div class="change">с нуля</div>
+                    </div>
+                    <div class="platform-card">
+                        <div class="name">Новых за период</div>
+                        <div class="stat">+40</div>
+                        <div class="change">после вакансии</div>
+                    </div>
+                    <div class="platform-card">
+                        <div class="name">Публикации</div>
+                        <div class="stat">12</div>
+                        <div class="change">постов</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Wilfort Capital -->
+        <div class="brand-section" id="wilfort-capital">
+            <div class="brand-header">
+                <div class="brand-name">Wilfort Capital</div>
+                <div class="brand-tag new">Запуск с нуля</div>
+            </div>
+            
+            <div class="subsection">
+                <div class="subsection-title">Выполненные работы</div>
+                <div class="infra-grid">
+                    <div class="infra-item">
+                        <span class="check">✓</span>
+                        <span class="text"><strong>Создан Instagram-профиль</strong> — с нуля</span>
+                    </div>
+                    <div class="infra-item">
+                        <span class="check">✓</span>
+                        <span class="text"><strong>12 постов</strong> — визуальная презентация бренда</span>
+                    </div>
+                </div>
+                <p style="margin-top: 15px; color: #64748b; font-size: 0.95rem;">
+                    Профиль работает в режиме «витрины». Активное продвижение планируется после согласования стратегии.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Budget -->
+        <div class="budget-section" id="budget">
+            <div class="brand-header">
+                <div class="brand-name">💰 Расходы за период</div>
+            </div>
+            
+            <table class="budget-table">
+                <thead>
+                    <tr>
+                        <th>Статья</th>
+                        <th>Бренд</th>
+                        <th style="text-align: right;">Сумма (AED)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Съёмка проекта Atlantis (пред- и постоплата)</td>
+                        <td class="category">KATZ Interiors</td>
+                        <td class="amount">4,400</td>
+                    </tr>
+                    <tr>
+                        <td>Ретушь 4 роликов Atlantis</td>
+                        <td class="category">KATZ Interiors</td>
+                        <td class="amount">500</td>
+                    </tr>
+                    <tr>
+                        <td>Тексты на видео для таргетинга (6 шт)</td>
+                        <td class="category">KATZ Interiors</td>
+                        <td class="amount">270</td>
+                    </tr>
+                    <tr>
+                        <td>Брендированные футболки (9 шт)</td>
+                        <td class="category">KATZ Interiors</td>
+                        <td class="amount">235</td>
+                    </tr>
+                    <tr>
+                        <td>Дизайн соцсетей (40% + 60%)</td>
+                        <td class="category">Wilfort AERO</td>
+                        <td class="amount">4,800</td>
+                    </tr>
+                    <tr>
+                        <td>AI ролик пробный</td>
+                        <td class="category">Wilfort AERO</td>
+                        <td class="amount">570</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 20px;">
+                <div class="budget-total">
+                    <span class="label">Производство контента:</span>
+                    <span class="amount">10,775 AED</span>
+                </div>
+                <div class="budget-total" style="background: #059669;">
+                    <span class="label">Рекламный бюджет META:</span>
+                    <span class="amount">€2,378 (~9,500 AED)</span>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px; padding: 16px; background: #f1f5f9; border-radius: 12px;">
+                <span style="font-size: 0.9rem; color: #64748b;">Общие расходы за 2 месяца:</span>
+                <span style="font-size: 1.3rem; font-weight: 700; color: #1e293b; margin-left: 10px;">~20,275 AED</span>
+            </div>
+            
+        </div>
+        
+        <!-- Challenges -->
+        <div class="brand-section" id="challenges" style="border-left-color: #f59e0b;">
+            <div class="brand-header">
+                <div class="brand-name">⚠️ Ограничения</div>
+                <div class="brand-tag" style="background: #fef3c7; color: #92400e;">Требует решения</div>
+            </div>
+            
+            <p style="margin-bottom: 30px; color: #64748b; font-size: 1rem; line-height: 1.7;">
+                Ряд организационных ограничений влияет на скорость и качество работы. Их устранение позволит перейти к системному производству контента и построению полноценного отдела.
+            </p>
+            
+            <div class="subsection">
+                <div class="subsection-title">1. Оплата исполнителей</div>
+                <div style="background: #fff7ed; padding: 20px 24px; border-radius: 12px; border-left: 4px solid #f59e0b;">
+                    <p style="color: #1e293b; font-size: 0.95rem; line-height: 1.7; margin: 0;">
+                        Отсутствует возможность оплаты специалистов в Казахстане и России, где доступны квалифицированные исполнители по конкурентным ставкам (дизайн, видеопроизводство). Стоимость аналогичных услуг в ОАЭ и Европе значительно выше. Поиск и найм ведётся без HR-поддержки.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="subsection">
+                <div class="subsection-title">2. Координация проектов</div>
+                <div style="background: #fff7ed; padding: 20px 24px; border-radius: 12px; border-left: 4px solid #f59e0b;">
+                    <p style="color: #1e293b; font-size: 0.95rem; line-height: 1.7; margin: 0;">
+                        Отсутствует единая точка информации о статусе объектов компании. Это затрудняет планирование съёмок и своевременную подготовку контента.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="subsection">
+                <div class="subsection-title">3. Обработка заявок</div>
+                <div style="background: #fff7ed; padding: 20px 24px; border-radius: 12px; border-left: 4px solid #f59e0b;">
+                    <p style="color: #1e293b; font-size: 0.95rem; line-height: 1.7; margin: 0;">
+                        Входящие заявки обрабатываются без выделенного менеджера. Статусы работы с клиентами не фиксируются в CRM, что не позволяет оценить качество лидов и корректно оптимизировать рекламные кампании.
+                    </p>
+                </div>
+            </div>
+            
+            <div style="background: #1e293b; padding: 24px 28px; border-radius: 12px; margin-top: 30px;">
+                <p style="color: #f1f5f9; font-size: 0.95rem; line-height: 1.7; margin: 0;">
+                    <strong style="color: #fbbf24;">Рекомендация:</strong> Решение указанных вопросов позволит масштабировать производство контента, повысить эффективность рекламы и сформировать системную работу отдела.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Next Steps -->
+        <div class="next-steps" id="plan">
+            <h2>📋 План на декабрь-январь</h2>
+            
+            <div class="steps-grid">
+                <div class="step-item">
+                    <span class="number">1</span>
+                    <span class="text"><strong>Оптимизация рекламы:</strong> перенаправить 80% бюджета на Дубай (CPL €12), остановить Турцию и Кипр</span>
+                </div>
+                <div class="step-item">
+                    <span class="number">2</span>
+                    <span class="text"><strong>Масштабирование:</strong> увеличить бюджет на эффективную аудиторию UHNWI + Interior + 35+</span>
+                </div>
+                <div class="step-item">
+                    <span class="number">3</span>
+                    <span class="text"><strong>Wilfort Aero:</strong> запуск рекламы на подписчиков и потенциальных клиентов</span>
+                </div>
+                <div class="step-item">
+                    <span class="number">4</span>
+                    <span class="text"><strong>Съёмка KADO:</strong> организация съёмки нового объекта для контента</span>
+                </div>
+                <div class="step-item">
+                    <span class="number">5</span>
+                    <span class="text"><strong>Брендинг KATZ:</strong> завершение визуальной концепции, презентации, визитки</span>
+                </div>
+                <div class="step-item">
+                    <span class="number">6</span>
+                    <span class="text"><strong>Новые GEO:</strong> тестирование Великобритании, Монако, Швейцарии</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div style="text-align: center; margin-top: 40px; color: #94a3b8; font-size: 0.9rem;">
+            Отчёт подготовлен: Декабрь 2025
+        </div>
+    </div>
+
+
+</body></html>
